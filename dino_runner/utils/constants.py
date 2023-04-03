@@ -27,6 +27,7 @@ RUNNING_HAMMER = [
 ]
 
 JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
+SONIC_JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Other/salto.png"))
 JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
 JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
 
@@ -61,11 +62,21 @@ BIRD = [
     pygame.image.load(os.path.join(IMG_DIR, "Bird/Bird2.png")),
 ]
 
+SONIC_RUNNING = [
+    pygame.image.load(os.path.join(IMG_DIR, "Other/sprite1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/sprite2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/sprite3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/sprite4.png")),
+]
+
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
+TREES = pygame.image.load(os.path.join(IMG_DIR, 'Other/decoracion.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
+BG2 = pygame.image.load(os.path.join(IMG_DIR, 'Other/fondo.jpg'))
+BG3 = pygame.image.load(os.path.join(IMG_DIR, 'Other/suelo.png'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 

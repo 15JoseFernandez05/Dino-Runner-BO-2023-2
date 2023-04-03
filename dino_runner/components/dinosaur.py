@@ -1,5 +1,5 @@
 import pygame
-from dino_runner.utils.constants import RUNNING, DUCKING, JUMPING
+from dino_runner.utils.constants import RUNNING, DUCKING, JUMPING, SONIC_RUNNING, SONIC_JUMPING
 
 
 class Dinosaur:
