@@ -1,5 +1,5 @@
 import pygame
-from dino_runner.utils.constants import RUNNING, DUCKING, JUMPING, SONIC_RUNNING, SONIC_JUMPING
+from dino_runner.utils.constants import RUNNING, DUCKING, JUMPING, SONIC_RUNNING, SONIC_JUMPING, SONIC_DUCKING
 
 
 class Dinosaur:
@@ -48,14 +48,31 @@ class Dinosaur:
         screen.blit(self.image, self.dino_rect)
 
     def run(self):
-        self.image = RUNNING[0] if self.step_index < 5 else RUNNING[1]
+         
+        if self.step_index < 5:
+            self.image = RUNNING[0] 
+        #elif self.step_index > 5 and self.step_index < 10:
+         #   self.image = SONIC_RUNNING[1]
+        #elif self.step_index > 10 and self.step_index < 15:
+         #   self.image = SONIC_RUNNING[2]
+        else :
+            self.image = RUNNING[1]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS
         self.step_index += 1
 
     def duck(self):
-        self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1]
+        if self.step_index < 5:
+            self.image = DUCKING[0] 
+        #elif self.step_index > 5 and self.step_index < 10:
+         #   self.image = SONIC_DUCKING[1]
+        #elif self.step_index > 10 and self.step_index < 15:
+         #   self.image = SONIC_DUCKING[2]
+        #elif self.step_index > 15 and self.step_index < 20:
+         #   self.image = SONIC_DUCKING[3]
+        else :
+            self.image = DUCKING[1]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS_DUCK

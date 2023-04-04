@@ -27,7 +27,7 @@ RUNNING_HAMMER = [
 ]
 
 JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
-SONIC_JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Other/salto.png"))
+SONIC_JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite3.png"))
 JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
 JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
 
@@ -69,10 +69,19 @@ SONIC_RUNNING = [
     pygame.image.load(os.path.join(IMG_DIR, "Other/sprite4.png")),
 ]
 
+SONIC_DUCKING = [
+    pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Other/syasprite5.png")),
+]
+
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 TREES = pygame.image.load(os.path.join(IMG_DIR, 'Other/decoracion.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
+DEAD = pygame.image.load(os.path.join(IMG_DIR, 'Dino/DinoDead.png'))
 
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 BG2 = pygame.image.load(os.path.join(IMG_DIR, 'Other/fondo.jpg'))
