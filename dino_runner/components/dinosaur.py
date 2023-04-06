@@ -1,8 +1,7 @@
 import pygame
 from dino_runner.utils.constants import (RUNNING, DUCKING, JUMPING, RUNNING_SHIELD, DUCKING_SHIELD,
                                          DEFAULT_TYPE, SHIELD_TYPE, JUMPING_SHIELD, HAMMER_TYPE,
-                                          DUCKING_HAMMER, JUMPING_HAMMER, RUNNING_HAMMER, SONIC_RUNNING, 
-                                         SONIC_JUMPING, SONIC_DUCKING )
+                                          DUCKING_HAMMER, JUMPING_HAMMER, RUNNING_HAMMER)
 
 
 class Dinosaur:
@@ -26,6 +25,8 @@ class Dinosaur:
         self.dino_jump = False
         self.jump_vel = self.JUMP_VEL
         self.dino_dead = False
+        self.shield = False
+        self.time_up_power_up = 0
 
     def update(self, user_input):
         if self.dino_jump:
@@ -51,18 +52,17 @@ class Dinosaur:
         if self.step_index >= 10:
             self.step_index = 0
 
+        if self.shield:
+            time_to_show = round((self.time_up_power_up - pygame.time.get_ticks())/1000, 2)
+            if time_to_show < 0:
+                self.reset()
+
     def draw(self, screen):
         screen.blit(self.image, self.dino_rect)
 
     def run(self):
         
         self.image = self.run_img[self.type][self.step_index // 5]
-        #elif self.step_index > 5 and self.step_index < 10:
-         #   self.image = SONIC_RUNNING[1]
-        #elif self.step_index > 10 and self.step_index < 15:
-         #   self.image = SONIC_RUNNING[2]
-        #else :
-         #   self.image = RUNNING[1]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS
@@ -70,14 +70,6 @@ class Dinosaur:
 
     def duck(self):
         self.image = self.duck_img[self.type][self.step_index // 5]
-        #elif self.step_index > 5 and self.step_index < 10:
-         #   self.image = SONIC_DUCKING[1]
-        #elif self.step_index > 10 and self.step_index < 15:
-         #   self.image = SONIC_DUCKING[2]
-        #elif self.step_index > 15 and self.step_index < 20:
-         #   self.image = SONIC_DUCKING[3]
-        #else :
-         #   self.image = DUCKING[1]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
         self.dino_rect.y = self.Y_POS_DUCK
@@ -96,6 +88,13 @@ class Dinosaur:
     def set_power_up(self, power_up):
         if power_up.type == SHIELD_TYPE:
             self.type = SHIELD_TYPE
+            self.shield = True
+            self.time_up_power_up = power_up.time_up
         if power_up.type == HAMMER_TYPE:
             self.type = HAMMER_TYPE
+
+    def reset(self):
+        self.type = DEFAULT_TYPE
+        self.shield = False
+        self.time_up_power_up = 0
 
